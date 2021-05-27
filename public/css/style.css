@@ -1,0 +1,28 @@
+
+#main {
+    width:100%;
+    display: inline-block;
+    transform-origin: 50% 50%;
+    position:relative;
+}
+
+#img_bg {
+    width:100%;
+}
+
+#img_table {
+    position:absolute;
+    width: 8%;
+    transform: translate(-50%,-50%)
+}
+
+#confirm_btn {
+    font-size:38px;
+    position:absolute;
+    width: 20%;
+    top: 50%;
+    left: 30%;
+    height:5%;
+    color:white;
+    background-color:blue;
+}

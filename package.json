@@ -1,0 +1,17 @@
+{
+  "name": "ty_canteen",
+  "version": "1.0.0",
+  "description": "基于node.js编写",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "grissomshen",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "express": "^4.17.1",
+    "pug": "^3.0.0",
+    "sharp": "^0.26.1"
+  }
+}
