@@ -3,17 +3,24 @@ const crypto = require('crypto');
 const axios = require("axios")
 const wework = {}
 
-const wework_key = ""
-const wework_api = "http://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=" + wework_key
+const wework_key = process.env.WEWORK_KEY
+const wework_api = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=" + wework_key
+
+console.log("Get wework_key",wework_key);
 
 wework.sendmarkdown = (str) => {
   axios.post(wework_api,{
-    "msgtype" : "markdown",
-    "markdown" : {
+    "msgtype" : "text",
+    "text" : {
       "content" : str
     }
   },{
-    proxy : false
+    proxy : false,
+    headers: {'Content-Type': 'application/json'},
+  }).then((res) => {
+    console.log(res.data);
+  }).catch((err) => {
+    console.error(err);
   })
 }
 
@@ -29,7 +36,12 @@ wework.sendimg = (img_buf) => {
       "md5" : md5
     }
   },{
-    proxy : false
+    proxy : false,
+    headers: {'Content-Type': 'application/json'},
+  }).then((res) => {
+    console.log(res.data);
+  }).catch((err) => {
+    console.error(err);
   })
 }
 

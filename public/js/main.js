@@ -1,7 +1,7 @@
 
 let curr_x = 0
 let curr_y = 0
-let name = "grissomshen"
+let name = null
 
 var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = window.location.search.substring(1),
@@ -19,7 +19,10 @@ var getUrlParameter = function getUrlParameter(sParam) {
 };
 
 const getName = () => {
-  name = getUrlParameter("name")	
+  name = getUrlParameter("name")
+  if (!name) {
+    name = "unknown"
+  }
 };
 
 const getImgPos = (e) => {
@@ -35,7 +38,7 @@ const getImgPos = (e) => {
     curr_y = (pageY - parent_dom.offsetTop) / img_dom.height * 100
     console.log("x",curr_x);
     console.log("y",curr_y);
-    
+
     const table_img = document.getElementById('img_table')
     table_img.style.left = `${curr_x}%`
     table_img.style.top = `${curr_y}%`
@@ -49,7 +52,7 @@ const onConfirmBtn = (e) => {
      data : JSON.stringify(obj),
      contentType: "application/json; charset=utf-8",
    })
-   
+
    alert("已通知")
 };
 
